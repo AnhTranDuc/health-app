@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply mx-auto w-full max-w-[960px] xl:max-w-[1200px];
+}
+
+.bg-gradient-primary {
+  @apply bg-gradient-to-tr from-[#FFCC21] to-[#FF963C];
+}
