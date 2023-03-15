@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import ScrollToTop from './ScrollToTop'
 
 export default function CategoryColum() {
   const [items, setItems] = useState<(typeof categories)[0][]>([])
@@ -13,29 +12,32 @@ export default function CategoryColum() {
   }, [])
 
   return (
-    <div className='container mt-[56px]'>
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+    <div className='container mt-[56px] px-4'>
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-y-6 sm:gap-4">
         {items.map((item, i) => (
           <div
-            className="relative aspect-square cursor-pointer overflow-hidden"
+            className="relative cursor-pointer overflow-hidden h-auto"
             key={i}
           >
+            <div className='relative'>
+
             <img
-              className="h-[144px] w-full object-cover transition-all duration-300 hover:scale-105"
+              className="h-[144px] w-full object-cover transition-all duration-300 hover:scale-105 overflow-hidden"
               src={item.icon}
               alt=""
             />
-            <p className='text-[#414141] leading-[22px] mt-[7.5px] font-[15px]'>{item?.decription}</p>
-            <p className='text-[#FF963C] leading-[22px] text-[12px]'>{item?.title}</p>
-            <div className="pointer-events-none absolute top-[112px] min-w-[120px] whitespace-nowrap bg-[#FFCC21] p-[8px] leading-none text-white">
+            <div className="pointer-events-none absolute bottom-0 xs:w-[120px] w-full text-[13px] whitespace-nowrap bg-[#FFCC21] p-[8px] leading-none text-white">
               {item?.date} {item.time}
             </div>
+            </div>
+            <p className='text-[#414141] leading-[22px] mt-[7.5px] text-[11px] md:text-[15px] sm:text-[16px] xs:text-[14px]'>{item?.decription}</p>
+            <p className='text-[#FF963C] leading-[22px] mb-4 text-[10px] md:text-[12px] sm:text-[15px] xs:text-[12px]'>{item?.title}</p>
           </div>
         ))}
         </div>
-        <ScrollToTop/>
+        {/* <ScrollToTop/> */}
       <button
-        className="bg-gradient-primary mx-auto mt-[36px] block w-full max-w-[296px] rounded-md font-noto text-[18px] font-light leading-[56px] text-white"
+        className="bg-gradient-primary mx-auto mt-[36px] block w-full max-w-[296px] rounded-md font-noto text-[18px] font-light leading-[56px] text-white xs:w-[50%]"
         onClick={handleShowMore}
       >
         コラムをもっと見る

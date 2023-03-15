@@ -24,7 +24,7 @@ export default function ScrollToTop() {
     
     window.addEventListener('scroll', toggleVisible);
   return (
-    <div className='fixed right-[8%] bottom-[48%] border-[#777777] rounded-full border w-[40px] h-[40px] justify-center items-center hidden cursor-pointer transition-all ease-out duration-1000'
+    <div className='fixed right-[8%] bottom-[38%] border-[#777777] rounded-full border w-[40px] h-[40px] justify-center items-center hidden cursor-pointer transition-all ease-out duration-1000'
           onClick={scrollToTop}
           style={{display: visible ? 'flex' : 'none'}}
         >
