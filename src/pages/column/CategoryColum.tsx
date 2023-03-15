@@ -1,29 +1,9 @@
 import React, {useEffect, useState} from 'react'
+import ScrollToTop from './ScrollToTop'
 
 export default function CategoryColum() {
   const [items, setItems] = useState<(typeof categories)[0][]>([])
-  const [visible, setVisible] = useState(false)
-  
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300){
-      setVisible(true)
-    } 
-    else if (scrolled <= 300){
-      setVisible(false)
-    }
-  };
-  
-  const scrollToTop = () =>{
-    window.scrollTo({
-      top: 0, 
-      behavior: 'smooth'
-      /* you can also use 'auto' behaviour
-         in place of 'smooth' */
-    });
-  };
-  
-  window.addEventListener('scroll', toggleVisible);
+ 
   const handleShowMore = () => {
     setItems((state) => [...state, ...categories])
   }
@@ -34,7 +14,7 @@ export default function CategoryColum() {
 
   return (
     <div className='container mt-[56px]'>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
         {items.map((item, i) => (
           <div
             className="relative aspect-square cursor-pointer overflow-hidden"
@@ -53,16 +33,7 @@ export default function CategoryColum() {
           </div>
         ))}
         </div>
-        <div className='fixed right-[8%] bottom-[48%] border-[#777777] rounded-full border w-[40px] h-[40px] justify-center items-center hidden cursor-pointer transition-all ease-out duration-1000'
-          onClick={scrollToTop}
-          style={{display: visible ? 'flex' : 'none'}}
-        >
-            <img
-              className='w-[20px]'
-              src='/assets/column-page/grid-item/icon-arrow.svg'
-              alt=""
-            />
-        </div>
+        <ScrollToTop/>
       <button
         className="bg-gradient-primary mx-auto mt-[36px] block w-full max-w-[296px] rounded-md font-noto text-[18px] font-light leading-[56px] text-white"
         onClick={handleShowMore}
