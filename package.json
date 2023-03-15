@@ -26,6 +26,7 @@
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.2",
     "@types/react": "^18.0.28",

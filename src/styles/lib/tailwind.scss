@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container {
-  @apply mx-auto w-full max-w-[960px] xl:max-w-[1200px];
+  @apply mx-auto w-full px-[8px] md:max-w-[calc(720px+8px*2)] lg:max-w-[calc(960px+16px*2)] lg:px-[16px] xl:max-w-[calc(1200px+16px*2)];
 }
 
 .bg-gradient-primary {

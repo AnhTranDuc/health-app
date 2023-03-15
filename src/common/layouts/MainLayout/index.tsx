@@ -4,7 +4,7 @@ import Header from './Header'
 
 const MainLayout = () => {
   return (
-    <div id="home-page">
+    <div>
       <Header />
       <Outlet />
       <Footer />

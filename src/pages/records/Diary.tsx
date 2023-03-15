@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function Gird() {
+export default function Diary() {
   const [items, setItems] = useState<(typeof categories)[0][]>([])
 
   const handleShowMore = () => {
@@ -12,20 +12,21 @@ export default function Gird() {
   }, [])
 
   return (
-    <div className="container">
+    <div className="">
+      <p className="text-[22px]">MY DIARY</p>
       <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
         {items.map((item, i) => (
           <div
-            className="relative aspect-square cursor-pointer overflow-hidden"
+            className="aspect-square cursor-pointer overflow-hidden border border-[#707070] p-[8px] leading-[1.25] text-[#414141] sm:p-[12px] lg:p-[16px]"
             key={i}
           >
-            <img
-              className="h-full w-full object-cover transition-all duration-300 hover:scale-105"
-              src={item?.image}
-              alt=""
-            />
-            <div className="pointer-events-none absolute bottom-0 left-0 min-w-[120px] whitespace-nowrap bg-[#FFCC21] p-[8px] leading-none text-white">
-              {item?.day}.{item.session}
+            <p className="lg:text-[18px]">2021.05.21</p>
+            <p className="lg:text-[18px]">23:25</p>
+            <div className="mt-[8px] font-noto text-[12px] font-light leading-[1.35] sm:mt-[16px] xl:text-[16px]">
+              <p className="line-clamp-2">私の日記の記録が一部表示されます。</p>
+              <p className="line-clamp-3 xs:line-clamp-5 md:line-clamp-4 lg:line-clamp-5">
+                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストストテキストテキストテキストテキストストテキストテキストテキストテキスト
+              </p>
             </div>
           </div>
         ))}

@@ -4,10 +4,10 @@ import Gird from './Gird'
 
 export default function HomePage() {
   return (
-    <>
+    <div id="home-page">
       <Banner />
       <Category />
       <Gird />
-    </>
+    </div>
   )
 }

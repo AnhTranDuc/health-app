@@ -1,5 +1,6 @@
 import MainLayout from 'common/layouts/MainLayout'
 import HomePage from 'pages/home'
+import RecordPage from 'pages/records'
 import { createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -12,6 +13,11 @@ const router = createBrowserRouter([
         path: '/',
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: '/record',
+        index: true,
+        element: <RecordPage />,
       },
     ],
   },
