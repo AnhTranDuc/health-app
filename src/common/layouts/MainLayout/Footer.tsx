@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="mt-[56px] bg-[#414141]">
-      <div className="container flex h-[128px] items-center space-x-[32px]">
+    <footer className="mt-[56px] flex min-h-[128px] items-center bg-[#414141]">
+      <div className="container inline-flex flex-col flex-wrap items-start sm:flex-row sm:items-center">
         {menu.map((item, i) => (
-          <Link to={item?.path} key={i}>
-            <p className="font-noto font-light text-white hover:underline">
+          <Link to={item?.path} key={i} className="mr-[32px] block">
+            <p className="font-noto font-light leading-loose text-white hover:underline">
               {item?.label}
             </p>
           </Link>

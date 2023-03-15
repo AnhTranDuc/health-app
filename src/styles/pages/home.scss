@@ -2,4 +2,20 @@
   .hexagon {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
+
+  .process {
+    filter: drop-shadow(0 0 3px #ff963c);
+    path {
+      animation: progress 1s ease-in-out forwards;
+    }
+    @keyframes progress {
+      0% {
+        stroke-dasharray: 0 100;
+      }
+    }
+  }
+
+  .process-text {
+    text-shadow: 0 0 3px #ff963c;
+  }
 }
