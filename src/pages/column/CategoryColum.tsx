@@ -2,7 +2,28 @@ import React, {useEffect, useState} from 'react'
 
 export default function CategoryColum() {
   const [items, setItems] = useState<(typeof categories)[0][]>([])
-
+  const [visible, setVisible] = useState(false)
+  
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300){
+      setVisible(true)
+    } 
+    else if (scrolled <= 300){
+      setVisible(false)
+    }
+  };
+  
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+  };
+  
+  window.addEventListener('scroll', toggleVisible);
   const handleShowMore = () => {
     setItems((state) => [...state, ...categories])
   }
@@ -31,7 +52,17 @@ export default function CategoryColum() {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+        <div className='absolute right-[100px] border-[#777777] rounded-full border w-[40px] h-[40px] justify-center items-center hidden cursor-pointer transition-all ease-out duration-1000'
+          onClick={scrollToTop}
+          style={{display: visible ? 'flex' : 'none'}}
+        >
+            <img
+              className='w-[20px]'
+              src='/assets/column-page/grid-item/icon-arrow.svg'
+              alt=""
+            />
+        </div>
       <button
         className="bg-gradient-primary mx-auto mt-[36px] block w-full max-w-[296px] rounded-md font-noto text-[18px] font-light leading-[56px] text-white"
         onClick={handleShowMore}
