@@ -1,10 +1,20 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 export default function CategoryColum() {
+  const [items, setItems] = useState<(typeof categories)[0][]>([])
+
+  const handleShowMore = () => {
+    setItems((state) => [...state, ...categories])
+  }
+
+  useEffect(() => {
+    setItems(categories)
+  }, [])
+
   return (
     <div className='container mt-[56px]'>
         <div className="grid grid-cols-4 gap-2">
-        {categories.map((item, i) => (
+        {items.map((item, i) => (
           <div
             className="relative aspect-square cursor-pointer overflow-hidden"
             key={i}
@@ -24,6 +34,7 @@ export default function CategoryColum() {
       </div>
       <button
         className="bg-gradient-primary mx-auto mt-[36px] block w-full max-w-[296px] rounded-md font-noto text-[18px] font-light leading-[56px] text-white"
+        onClick={handleShowMore}
       >
         コラムをもっと見る
       </button>
