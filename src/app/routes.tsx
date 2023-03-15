@@ -1,6 +1,7 @@
 import MainLayout from 'common/layouts/MainLayout'
 import HomePage from 'pages/home'
 import RecordPage from 'pages/records'
+import ColumnPage from 'pages/column'
 import { createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
         path: '/record',
         index: true,
         element: <RecordPage />,
+      },
+      {
+        path: '/column',
+        index: true,
+        element: <ColumnPage />,
       },
     ],
   },
